@@ -1,0 +1,19 @@
+.header{
+    padding: 15px;
+    border-bottom: 2px solid black;
+}
+
+
+.nav{
+    display: flex;
+    gap: 15px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.activeLink{
+    color: rgb(204, 64, 64);
+}
