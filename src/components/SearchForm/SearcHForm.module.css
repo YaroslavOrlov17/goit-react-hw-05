@@ -1,0 +1,35 @@
+.formBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.formInput {
+    padding: 15px;
+    border: 2px solid #d0e1f9;
+    border-radius: 15px;
+}
+.formInput:focus {
+    outline: none;
+}
+
+
+
+.formBtn{
+    padding: 15px;
+    background-color: #d0e1f9;
+    color: #1e1f26;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: border-color .3s ease-out ;
+}
+
+
+.formBtn:hover{
+border-color: #4d648d;
+}
+

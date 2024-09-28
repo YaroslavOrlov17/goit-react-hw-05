@@ -1,39 +1,38 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchReviews } from "../../services/TMBDapi"
-import Loader from "../Loader/Loader"
+import { BsPersonCircle } from "react-icons/bs";
+import s from "./MovieReviews.module.css"
 
 const MovieReviews = () => {
 const {movieId} = useParams()
 const[reviews, setReviews] = useState([])
 const [error,setError] = useState(false)
-const [loading,setIsLoading] = useState(false)
 
 useEffect(()=>{
   const getReviews = async()=> {
     try{
+      setError(false)
       const data = await fetchReviews(movieId)
       setReviews(data)
     }
     catch{
       setError(true)
     }
-    finally{
-      setIsLoading(false)
-    }
-    
   }
   getReviews()
 },[movieId])
 
   return (
   <div>
-    {loading && <Loader/> }
     {error && <div>Something went wrong, please try again</div> }
-    <ul>
-      {reviews.map(review => <li key={review.id}>
-          <p>Author: {review.author}</p>
+    <ul className={s.commentList}>
+      {reviews.map(review => <li className={s.commentBox} key={review.id}>
+        <BsPersonCircle className={s.avatar} />
+        <div>
+          <p className={s.author}>{review.author}</p>
           <p>{review.content}</p>
+        </div>
       </li>)}
     </ul>
   </div>

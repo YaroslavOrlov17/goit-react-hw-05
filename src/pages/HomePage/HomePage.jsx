@@ -1,27 +1,22 @@
 import { useEffect, useState } from "react"
 import MovieList from "../../components/MovieList/MovieList"
 import { fetchTrendingMovies } from "../../services/TMBDapi"
-import Loader from "../../components/Loader/Loader"
+import s from "./HomePage.module.css"
 
 const HomePage = () => {
   const[trendingMovies,setTrendingMovies] = useState([])
   const [error,setError] = useState(false)
-  const [loading,setIsLoading] = useState(false)
 
   
   useEffect(()=>{
     const getMovies = async()=>{
     try{
       setError(false)
-      setIsLoading(true)
       const data = await fetchTrendingMovies()
       setTrendingMovies(data)
     }
     catch{
       setError(true)
-    }
-    finally{
-      setIsLoading(false)
     }}
   getMovies()
   },[])
@@ -29,8 +24,7 @@ const HomePage = () => {
 
   return (
     <div>
-     <h2>Treanding today</h2>
-     {loading && <Loader/> }
+     <h2 className={s.title}>Trending today</h2>
      {error && <div>Something went wrong, please try again</div> }
      <MovieList movies={trendingMovies} />
     </div>

@@ -1,6 +1,12 @@
 .header{
+    margin: 20px auto;
     padding: 15px;
-    border-bottom: 2px solid black;
+    background-color:#1e1f26 ;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    border-radius: 50px;
+    width: 220px;
 }
 
 
@@ -11,9 +17,14 @@
 
 .link{
     text-decoration: none;
-    color: black;
+    color: #d0e1f9;
+    padding: 10px 15px;
 }
 
 .activeLink{
-    color: rgb(204, 64, 64);
+    padding: 10px 15px;
+    background-color: #d0e1f9;
+    color: #283655;
+    border-radius: 20px;
 }
+
