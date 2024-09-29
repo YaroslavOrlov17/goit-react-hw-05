@@ -30,14 +30,12 @@ const options = {
 
   export const fetchReviews = async (movieId) => {
      const {data} = await axios.get(`movie/${movieId}/reviews?${API_KEY}`,options)
-     console.log(data.results);
      return data.results
   }
 
 
   export const fetchMoviesByQuery = async (query) => {
      const {data} = await axios.get(`search/movie?query=${query}&${API_KEY}`,options)
-     console.log(data.results);
      return data.results
   }
 
