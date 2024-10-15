@@ -27,6 +27,9 @@ useEffect(()=>{
   <div>
     {error && <div>Something went wrong, please try again</div> }
     <ul className={s.commentList}>
+      {reviews.length === 0 && !error && (
+        <p >No review information available for this movie.</p>
+      )}
       {reviews.map(review => <li className={s.commentBox} key={review.id}>
         <BsPersonCircle className={s.avatar} />
         <div>
